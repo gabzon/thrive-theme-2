@@ -26,7 +26,7 @@ class ToolBox extends React.Component {
       return <ToolCard tool={tool} key={i}/>
     });
     return(
-      <div style={{display:'flex', flexWrap:'wrap', justifyContent: 'space-between', alignContent: 'flex-start'}}>
+      <div className="toolbox-wrapper" style={{display:'flex', flexWrap:'wrap', justifyContent: 'space-around'}}>
         {tools}
       </div>
     )

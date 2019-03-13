@@ -17,21 +17,22 @@ class ToolCard extends React.Component {
 
   render(){
     return(
-      <a href={this.props.tool.link} >
+      <div className="tool-card">
         <Card
           hoverable
-          style={{ width: 340, marginBottom: 10}}
-          cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-          actions={[<Icon type="download" />, <a href={this.props.tool.link}><Icon type="info-circle" /></a>, <Icon type="share-alt" />]}
-          >
+          style={{ width: 260, marginBottom: 10 }}
+          cover={<img alt={this.props.tool.title.rendered} src={this.props.tool.cover_image} />}
+          actions={[<a href={this.props.tool.download} target="_blank" download><Icon type="download" /></a>,<a href={this.props.tool.link}><Icon type="info-circle" /></a>]}>
           <Meta
             title={this.props.tool.title.rendered}
             description={this.displayDescription(this.props.tool.excerpt.rendered)}
             />
         </Card>
-      </a>
+      </div>
     )
   }
 }
 
 export default ToolCard;
+
+//,<Icon type="share-alt" />

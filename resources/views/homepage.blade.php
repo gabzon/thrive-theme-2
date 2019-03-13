@@ -3,46 +3,32 @@ Template Name: Homepage
 --}}
 
 
-@php
-// WP_Query arguments
-$args = array(
-  'post_type'       => array( 'tool' ),
-  'orderby'         => 'rand',
-  'posts_per_page'  => -1,
-);
-
-// The Query
-$tools = new WP_Query( $args );
-@endphp
-
-@extends('layouts.app')
+@extends('layouts.full-width')
 
 @section('content')
-
-  @while(have_posts()) @php the_post() @endphp
-    @include('partials.page-header')
-    @include('partials.content-page')
-  @endwhile
-
-  <div id="toolbox"></div>
-
-  @if ( $tools->have_posts() )
-    <div class="card-columns">
-      @while ( $tools->have_posts() )
-        @php $tools->the_post() @endphp
-        <div class="card grow">
-          <img src="{{ the_post_thumbnail_url('post-thumbnail')}}" class="card-img-top" alt="..." style="background:lightgrey; min-width:180px;">
-          <div class="card-body">
-            <h5 class="card-title">{!! get_the_title() !!}</h5>
-            <p class="card-text">{{ get_the_excerpt() }}</p>
-            <a href="{{ get_the_permalink() }}" class="btn btn-primary">More Info</a>
-          </div>
-        </div>
-      @endwhile
+  <div class="jumbotron text-center" id="landing-search">
+    <h1 class="display-4 white">INNOVATION TOOLBOX</h1>
+    <p class="lead">Business tools for today's challenges</p>
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <form role="search" method="get" class="form-group has-search" action="<?= esc_url(home_url('/')); ?>">
+          <input type="search" name="s" class="form-control search-field" placeholder="Search" value="<?= get_search_query(); ?>">
+        </form>
+      </div>
     </div>
-  @else
-  @endif
+  </div>
 
-  <?php wp_reset_postdata(); ?>
+  <div class="container">
+    @while(have_posts()) @php the_post() @endphp
+      {{-- @include('partials.page-header') --}}
+      @include('partials.content-page')
+    @endwhile
+
+    <section class="toolbox my-4 py-4">
+      <div id="toolbox"></div>
+    </section>
+
+    {{-- @include('tool.toolbox') --}}
+  </div>
 
 @endsection
