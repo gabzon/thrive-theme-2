@@ -8,6 +8,6 @@ $theme-tertiary:   #dc2430;
   overflow-y: hidden;
   background: url("../images/shattered.png"), $theme-secondary; /* fallback for old browsers */
   background: url("../images/shattered.png"), linear-gradient(to left, $theme-secondary, $theme-tertiary); /* Chrome 10-25, Safari 5.1-6 */
-  background: url("http://localhost/thrive/web/app/themes/thrive-theme-2/dist/images/map-image.png"), linear-gradient(to left, $theme-secondary, $theme-tertiary); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: url("https://thrive.tools/app/themes/thrive-theme-2/resources/assets/images/map-image.png"), linear-gradient(to left, $theme-secondary, $theme-tertiary); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
 }

@@ -17,7 +17,7 @@ class ToolCard extends React.Component {
 
   render(){
     return(
-      <div className="tool-card">
+      <a href={this.props.tool.link} target="_blank" className="tool-card">
         <Card
           hoverable
           style={{ width: 260, marginBottom: 10 }}
@@ -28,7 +28,7 @@ class ToolCard extends React.Component {
             description={this.displayDescription(this.props.tool.excerpt.rendered)}
             />
         </Card>
-      </div>
+      </a>
     )
   }
 }
