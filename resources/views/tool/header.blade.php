@@ -68,8 +68,10 @@
                 <i class="fas fa-circle fa-stack-2x" style="color:#55acee"></i>
                 <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
               </span>
-            </a>
-
+            </a>            
+            @php
+              the_favorites_button($post->ID);
+            @endphp
           </div>
         </div>
 
